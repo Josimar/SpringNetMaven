@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>JBS - Lista</title>
+</head>
+<body>
+
+<h1>Lista de Empregos</h1>
+
+<a href="/addemprego">Novo emprego</a>
+
+<div th:each="emprego : ${empregos}">
+    <h4 th:inline="text">[[ ${emprego.titulo} ]] na [[ ${emprego.empresa} ]]</h4>
+    <p th:text="${emprego.descricao}"></p>
+</div>
+
+</body>
+</html>
