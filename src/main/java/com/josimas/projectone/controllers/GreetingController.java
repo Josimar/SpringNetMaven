@@ -1,12 +1,18 @@
 package com.josimas.projectone.controllers;
 
+import com.josimas.projectone.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class GreetingController {
-    public String sayHello(){
-        System.out.println("Hello tasks");
 
-        return "Hi tasks";
+    private final GreetingService greetingService;
+
+    public GreetingController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    public String sayHello(){
+        return greetingService.sayGreeting();
     }
 }

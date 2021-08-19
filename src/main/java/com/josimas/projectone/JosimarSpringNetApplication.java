@@ -16,33 +16,27 @@ public class JosimarSpringNetApplication {
         GreetingController greetingController = (GreetingController) ctx.getBean("greetingController");
 
         System.out.println(" ");
-        System.out.println("******************************");
-        String greeting = greetingController.sayHello();
 
-        System.out.println(greeting);
+        System.out.println("********** Primary Bean **********");
+        System.out.println(greetingController.sayHello());
 
         System.out.println(" ");
+
         System.out.println("********** Property **********");
-
         PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
-
         System.out.println(propertyInjectedController.getGreeting());
 
         System.out.println(" ");
+
         System.out.println("********** Setter **********");
-
         SetterInjectedController setterInjectedController = (SetterInjectedController) ctx.getBean("setterInjectedController");
-
         System.out.println(setterInjectedController.getGreeting());
 
         System.out.println(" ");
+
         System.out.println("********** Constructor **********");
-
         ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
-
         System.out.println(constructorInjectedController.getGreeting());
-
-        System.out.println(" ");
 
         System.out.println(" ");
     }
