@@ -15,6 +15,13 @@ public class JosimarSpringNetApplication {
 
         GreetingController greetingController = (GreetingController) ctx.getBean("greetingController");
 
+        I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+
+        System.out.println(" ");
+
+        System.out.println("********** I18n **********");
+        System.out.println(i18nController.sayHello());
+
         System.out.println(" ");
 
         System.out.println("********** Primary Bean **********");
