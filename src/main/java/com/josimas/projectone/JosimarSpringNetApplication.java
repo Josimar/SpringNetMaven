@@ -1,5 +1,6 @@
 package com.josimas.projectone;
 
+import com.josimas.projectone.controllers.GreetingController;
 import com.josimas.projectone.controllers.TaskController;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.boot.SpringApplication;
@@ -13,9 +14,9 @@ public class JosimarSpringNetApplication {
 
         ConfigurableApplicationContext ctx = SpringApplication.run(JosimarSpringNetApplication.class, args);
 
-        TaskController taskController = (TaskController) ctx.getBean("taskController");
+        GreetingController greetingController = (GreetingController) ctx.getBean("greetingController");
 
-        String greeting = taskController.sayHello();
+        String greeting = greetingController.sayHello();
 
         System.out.println(greeting);
 
