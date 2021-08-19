@@ -1,10 +1,8 @@
 package com.josimas.projectone.controllers;
 
-import com.josimas.projectone.services.GreetingServiceImplementation;
+import com.josimas.projectone.services.ConstructorGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SetterInjectedControllerTest {
 
@@ -13,7 +11,7 @@ class SetterInjectedControllerTest {
     @BeforeEach
     void setUp() {
         controller = new SetterInjectedController();
-        controller.setGreetingService(new GreetingServiceImplementation());
+        controller.setGreetingService(new ConstructorGreetingService());
     }
 
     @Test

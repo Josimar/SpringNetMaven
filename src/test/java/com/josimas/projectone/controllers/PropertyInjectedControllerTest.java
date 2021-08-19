@@ -1,6 +1,6 @@
 package com.josimas.projectone.controllers;
 
-import com.josimas.projectone.services.GreetingServiceImplementation;
+import com.josimas.projectone.services.ConstructorGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ public class PropertyInjectedControllerTest {
     @BeforeEach
     void setUp(){
         controller = new PropertyInjectedController();
-        controller.greetingService = new GreetingServiceImplementation();
+        controller.greetingService = new ConstructorGreetingService();
     }
 
     @Test
