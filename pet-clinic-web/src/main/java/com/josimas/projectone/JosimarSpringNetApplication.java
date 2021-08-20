@@ -4,7 +4,9 @@ import com.josimas.projectone.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan(basePackages = {"com.josimas.projectone", "com.josimas.pets"})
 @SpringBootApplication
 public class JosimarSpringNetApplication {
 
@@ -15,6 +17,12 @@ public class JosimarSpringNetApplication {
         GreetingController greetingController = (GreetingController) ctx.getBean("greetingController");
 
         I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+
+        PetController petController = ctx.getBean("petController", PetController.class);
+
+        System.out.println(" ");
+        System.out.println("********** The best pet is **********");
+        System.out.println(petController.whichPetIsTheBest());
 
         System.out.println(" ");
 
