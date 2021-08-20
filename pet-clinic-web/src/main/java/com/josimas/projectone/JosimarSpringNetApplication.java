@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages = {"com.josimas.projectone", "com.josimas.pets"})
 @SpringBootApplication
 public class JosimarSpringNetApplication {
 

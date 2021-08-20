@@ -1,5 +1,7 @@
 package com.josimas.projectone.config;
 
+import com.josimas.pets.PetService;
+import com.josimas.pets.PetServiceFactory;
 import com.josimas.projectone.repository.EnglishGreetingRepository;
 import com.josimas.projectone.repository.EnglishGreetingRepositoryImplementation;
 import com.josimas.projectone.services.*;
@@ -10,6 +12,29 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    PetServiceFactory petServiceFactory(){
+        return new PetServiceFactory();
+    }
+
+    @Bean("petService")
+    @Profile({"dog", "default"})
+    PetService dogService(PetServiceFactory petServiceFactory){
+        return petServiceFactory.getPetService("dog");
+    }
+
+    @Bean
+    @Profile("cat")
+    PetService catService(PetServiceFactory petServiceFactory){
+        return petServiceFactory.getPetService("cat");
+    }
+
+    @Bean
+    @Profile("bird")
+    PetService birdService(PetServiceFactory petServiceFactory){
+        return petServiceFactory.getPetService("bird");
+    }
 
     @Bean
     EnglishGreetingRepository englishGreetingRepository(){
