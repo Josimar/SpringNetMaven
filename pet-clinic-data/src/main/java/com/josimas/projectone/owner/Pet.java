@@ -1,7 +1,8 @@
 package com.josimas.projectone.owner;
 
-import com.josimas.projectone.model.NamedEntity;
 import com.josimas.projectone.visit.Visit;
+import com.josimas.projectone.model.NamedEntity;
+
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.format.annotation.DateTimeFormat;

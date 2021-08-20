@@ -2,13 +2,11 @@ package com.josimas.projectone.services;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ToyBuilderTest {
 
     @Test
     public void testBuildToyHouse() throws Exception {
-        ToyHouse toyHouse=ToyBuilder.buildToyHouse();
+        ToyHouse toyHouse= ToyBuilder.buildToyHouse();
         System.out.println(toyHouse);
     }
 
