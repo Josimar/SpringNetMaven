@@ -22,7 +22,7 @@ public class Visit extends BaseEntity {
     private String description;
 
     @Column(name = "pet_id")
-    private Integer petId;
+    private Long petId;
 
     /**
      * Creates a new instance of Visit for the current date
@@ -47,11 +47,11 @@ public class Visit extends BaseEntity {
         this.description = description;
     }
 
-    public Integer getPetId() {
+    public Long getPetId() {
         return this.petId;
     }
 
-    public void setPetId(Integer petId) {
+    public void setPetId(Long petId) {
         this.petId = petId;
     }
 
