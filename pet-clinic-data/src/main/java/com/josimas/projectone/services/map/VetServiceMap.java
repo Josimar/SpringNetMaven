@@ -1,11 +1,12 @@
 package com.josimas.projectone.services.map;
 
 import com.josimas.projectone.services.CrudService;
+import com.josimas.projectone.services.VetService;
 import com.josimas.projectone.vet.Vet;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
