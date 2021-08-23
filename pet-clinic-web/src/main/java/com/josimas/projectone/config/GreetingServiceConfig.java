@@ -2,14 +2,30 @@ package com.josimas.projectone.config;
 
 import com.josimas.pets.PetService;
 import com.josimas.pets.PetServiceFactory;
+import com.josimas.projectone.datasource.FakeDataSource;
 import com.josimas.projectone.repository.EnglishGreetingRepository;
 import com.josimas.projectone.repository.EnglishGreetingRepositoryImplementation;
 import com.josimas.projectone.services.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:pet-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${jbs.username}") String username,
+                                  @Value("${jbs.password}") String password,
+                                  @Value("${jbs.jdbcurl}")String jdbcurl){
+        FakeDataSource fakeDataSource = new FakeDataSource();
+
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(jdbcurl);
+
+        return fakeDataSource;
+    }
 
     @Bean
     PetServiceFactory petServiceFactory(){
