@@ -3,9 +3,11 @@ package com.josimas.projectone.services.map;
 import com.josimas.projectone.owner.Owner;
 import com.josimas.projectone.services.CrudService;
 import com.josimas.projectone.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override

@@ -3,9 +3,8 @@ package com.josimas.projectone.bootstrap;
 import com.josimas.projectone.owner.Owner;
 import com.josimas.projectone.services.OwnerService;
 import com.josimas.projectone.services.VetService;
-import com.josimas.projectone.services.map.OwnerServiceMap;
-import com.josimas.projectone.services.map.VetServiceMap;
 import com.josimas.projectone.vet.Vet;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,13 +14,16 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader(){
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService){
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+        System.out.println(" ");
+        System.out.println("********** Auto Load **********");
+
         Owner owner1 = new Owner();
         owner1.setId(1L);
         owner1.setFirstName("Josimar");
