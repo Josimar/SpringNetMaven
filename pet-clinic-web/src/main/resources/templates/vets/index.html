@@ -5,8 +5,27 @@
     <title>JBS - Pet Clinic</title>
 </head>
 <body>
+<!--/*thymesVar id="vet" type="com.josimas.projectone.vet.Vet"*/-->
 
-<h1 th:text="'List of Vets'">Index Page</h1>
+<h1 th:text="'List of Vets'">List of Vets</h1>
+
+<table>
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vet : ${vets}">
+        <td th:text="${vet.id}">0</td>
+        <td th:text="${vet.firstName}">Josimar</td>
+        <td th:text="${vet.lastName}">B. da Silva</td>
+    </tr>
+    </tbody>
+</table>
+
 
 </body>
 </html>
