@@ -29,8 +29,8 @@ public class JosimarSpringNetApplication {
 
         System.out.println(" ");
 
-        System.out.println("********** I18n **********");
-        System.out.println(i18nController.sayHello());
+//        System.out.println("********** I18n **********");
+//        System.out.println(i18nController.sayHello());
 
         System.out.println(" ");
 
