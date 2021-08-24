@@ -1,5 +1,7 @@
 package com.josimas.projectone;
 
+import com.josimas.projectone.config.JosimarSpringConfiguration;
+import com.josimas.projectone.config.JosimarSpringConstructorConfig;
 import com.josimas.projectone.controllers.*;
 import com.josimas.projectone.datasource.FakeDataSource;
 import com.josimas.projectone.services.PrototypeBean;
@@ -68,11 +70,25 @@ public class JosimarSpringNetApplication {
 
         System.out.println(" ");
 
-        System.out.println("********** Datasource **********");
+        System.out.println("********** Fake Datasource **********");
         FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
         System.out.println(fakeDataSource.getUsername());
         System.out.println(fakeDataSource.getPassword());
         System.out.println(fakeDataSource.getJdbcurl());
+
+        System.out.println(" ");
+        System.out.println("********** Configuration Props Bean **********");
+        JosimarSpringConfiguration josimarSpringConfiguration = ctx.getBean(JosimarSpringConfiguration.class);
+        System.out.println(josimarSpringConfiguration.getUsername());
+        System.out.println(josimarSpringConfiguration.getPassword());
+        System.out.println(josimarSpringConfiguration.getJdbcurl());
+
+        System.out.println(" ");
+        System.out.println("********** Constructor Binding **********");
+        JosimarSpringConstructorConfig josimarSpringConstructorConfig = ctx.getBean(JosimarSpringConstructorConfig.class);
+        System.out.println(josimarSpringConstructorConfig.getUsername());
+        System.out.println(josimarSpringConstructorConfig.getPassword());
+        System.out.println(josimarSpringConstructorConfig.getJdbcurl());
 
         System.out.println(" ");
     }

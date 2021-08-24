@@ -1,6 +1,12 @@
-package com.josimas.projectone.datasource;
+package com.josimas.projectone.config;
 
-public class FakeDataSource {
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+@ConfigurationProperties("jbs")
+@Configuration
+public class JosimarSpringConfiguration {
 
     private String username;
     private String password;

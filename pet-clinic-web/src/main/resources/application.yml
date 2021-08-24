@@ -1,0 +1,35 @@
+server:
+  port: 8006
+
+spring:
+  profiles:
+    active:
+      - dog
+      - EN
+      - dev
+
+jbs:
+  username: YMLUserName
+  password: YMLPassword
+  jdbcurl: YMLUrl
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+jbs:
+  username: YMLProdUserName
+  password: YMLProdPassword
+  jdbcurl: YMLProdUrl
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+jbs:
+  username: YMLDevUserName
+  password: YMLDevPassword
+  jdbcurl: YMLDevUrl
+

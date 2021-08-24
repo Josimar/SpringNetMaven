@@ -7,21 +7,21 @@ import com.josimas.projectone.repository.EnglishGreetingRepository;
 import com.josimas.projectone.repository.EnglishGreetingRepositoryImplementation;
 import com.josimas.projectone.services.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
+@EnableConfigurationProperties(JosimarSpringConstructorConfig.class)
 @ImportResource("classpath:pet-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${jbs.username}") String username,
-                                  @Value("${jbs.password}") String password,
-                                  @Value("${jbs.jdbcurl}")String jdbcurl){
+    FakeDataSource fakeDataSource(JosimarSpringConstructorConfig josimarSpringConstructorConfig){
         FakeDataSource fakeDataSource = new FakeDataSource();
 
-        fakeDataSource.setUsername(username);
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setJdbcurl(jdbcurl);
+        fakeDataSource.setUsername(josimarSpringConstructorConfig.getUsername());
+        fakeDataSource.setPassword(josimarSpringConstructorConfig.getPassword());
+        fakeDataSource.setJdbcurl(josimarSpringConstructorConfig.getJdbcurl());
 
         return fakeDataSource;
     }
