@@ -20,7 +20,7 @@ spring:
     hibernate:
       ddl-auto: create
   datasource:
-    url: jdbc:h2:mem:bd_job
+    url: jdbc:h2:mem:bd_pet
 
 jbs:
   username: YMLUserName
