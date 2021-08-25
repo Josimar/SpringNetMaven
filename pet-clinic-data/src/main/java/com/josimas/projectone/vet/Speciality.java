@@ -2,8 +2,15 @@ package com.josimas.projectone.vet;
 
 import com.josimas.projectone.model.BaseEntity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "specialties")
 public class Speciality extends BaseEntity {
 
+    @Column(name = "description")
     private String description;
 
     public String getDescription() {
