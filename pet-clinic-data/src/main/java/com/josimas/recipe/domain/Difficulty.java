@@ -1,0 +1,5 @@
+package com.josimas.recipe.domain;
+
+public enum Difficulty {
+    EASY, MODERATE, HARD
+}
