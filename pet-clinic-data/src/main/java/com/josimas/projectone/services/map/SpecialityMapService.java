@@ -1,6 +1,6 @@
 package com.josimas.projectone.services.map;
 
-import com.josimas.projectone.services.SpecialitesService;
+import com.josimas.projectone.services.SpecialtyService;
 import com.josimas.projectone.vet.Speciality;
 import com.josimas.projectone.vet.Specialty;
 import org.springframework.stereotype.Service;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
-public class SpecialityMapService extends AbstractMapService<Specialty, Long> implements SpecialitesService {
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialtyService {
     @Override
-    public Set<Specialty> findAll() {
+    public Set<Speciality> findAll() {
         return super.findAll();
     }
 
@@ -20,17 +20,17 @@ public class SpecialityMapService extends AbstractMapService<Specialty, Long> im
     }
 
     @Override
-    public Specialty save(Specialty object) {
-        return super.save(object);
+    public Speciality save(Speciality specialty) {
+        return super.save(specialty);
     }
 
     @Override
-    public void delete(Specialty object) {
+    public void delete(Speciality object) {
         super.delete(object);
     }
 
     @Override
-    public Specialty findById(Long id) {
+    public Speciality findById(Long id) {
         return super.findById(id);
     }
 }
