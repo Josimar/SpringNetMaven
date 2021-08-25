@@ -3,6 +3,7 @@ package com.josimas.projectone.bootstrap;
 import com.josimas.projectone.model.Role;
 import com.josimas.projectone.model.User;
 import com.josimas.projectone.owner.Owner;
+import com.josimas.projectone.owner.Pet;
 import com.josimas.projectone.owner.PetType;
 import com.josimas.projectone.repository.RoleRepository;
 import com.josimas.projectone.repository.UserRepository;
@@ -15,6 +16,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Component
@@ -69,12 +71,32 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Josimar");
         owner1.setLastName("Silva");
+        owner1.setAddress("123 Brickerel");
+        owner1.setCity("Miami");
+        owner1.setTelephone("+551121753500");
+
+        Pet josimarPet = new Pet();
+        josimarPet.setPetType(savedDogPetType);
+        josimarPet.setOwner(owner1);
+        josimarPet.setBirthDate(LocalDate.now());
+        josimarPet.setName("Maltês");
+        owner1.getPets().add(josimarPet);
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Josimas");
         owner2.setLastName("Batista");
+        owner2.setAddress("987 Krington");
+        owner2.setCity("Los Angeles");
+        owner2.setTelephone("+551121753425");
+
+        Pet josimasCat = new Pet();
+        josimasCat.setName("Frajola");
+        josimasCat.setOwner(owner2);
+        josimasCat.setBirthDate(LocalDate.now());
+        josimasCat.setPetType(savedCatPetType);
+        owner2.getPets().add(josimasCat);
 
         ownerService.save(owner2);
 

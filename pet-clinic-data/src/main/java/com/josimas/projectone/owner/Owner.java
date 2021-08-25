@@ -10,10 +10,48 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import java.util.*;
 
-@Entity
-@Table(name = "owners")
+//@Entity
+//@Table(name = "owners")
 public class Owner extends Person {
 
+    private String address;
+    private String city;
+    private String telephone;
+    private Set<Pet> pets = new HashSet<>();
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public Set<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(Set<Pet> pets) {
+        this.pets = pets;
+    }
+
+    /*
     @Column(name = "address")
     @NotEmpty
     private String address;
@@ -66,32 +104,25 @@ public class Owner extends Person {
     }
 
     public List<Pet> getPets() {
+    public Set<Pet> getPets() {
+        return pets;
+
         List<Pet> sortedPets = new ArrayList<>(getPetsInternal());
         PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
         return Collections.unmodifiableList(sortedPets);
-    }
 
-    public void addPet(Pet pet) {
-        if (pet.isNew()) {
-            getPetsInternal().add(pet);
-        }
-        pet.setOwner(this);
-    }
 
-    /**
-     * Return the Pet with the given name, or null if none found for this Owner.
-     * @param name to test
-     * @return true if pet name is already in use
-     */
-    public Pet getPet(String name) {
-        return getPet(name, false);
-    }
 
-    /**
-     * Return the Pet with the given name, or null if none found for this Owner.
-     * @param name to test
-     * @return true if pet name is already in use
-     */
+//     * Return the Pet with the given name, or null if none found for this Owner.
+//     * @param name to test
+//     * @return true if pet name is already in use
+
+
+
+//     * Return the Pet with the given name, or null if none found for this Owner.
+//     * @param name to test
+//     * @return true if pet name is already in use
+
     public Pet getPet(String name, boolean ignoreNew) {
         name = name.toLowerCase();
         for (Pet pet : getPetsInternal()) {
@@ -115,5 +146,6 @@ public class Owner extends Person {
                 .append("telephone", this.telephone).toString();
     }
 
+    */
 }
 

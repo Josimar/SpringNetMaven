@@ -1,5 +1,6 @@
 package com.josimas.projectone.owner;
 
+import com.josimas.projectone.model.BaseEntity;
 import com.josimas.projectone.visit.Visit;
 import com.josimas.projectone.model.NamedEntity;
 
@@ -11,10 +12,49 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.*;
 
-@Entity
-@Table(name = "pets")
-public class Pet extends NamedEntity {
+//@Entity
+//@Table(name = "pets")
+//public class Pet extends NamedEntity {
+public class Pet extends BaseEntity {
 
+    private String name;
+    private PetType petType;
+    private Owner owner;
+    private LocalDate birthDate;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public PetType getPetType() {
+        return petType;
+    }
+
+    public void setPetType(PetType petType) {
+        this.petType = petType;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    /*
     @Column(name = "birth_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
@@ -76,5 +116,6 @@ public class Pet extends NamedEntity {
         visit.setPetId(this.getId());
     }
 
+    */
 }
 

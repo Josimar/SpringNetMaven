@@ -1,14 +1,24 @@
 package com.josimas.projectone.services.map;
 
+import com.josimas.pets.PetService;
 import com.josimas.projectone.owner.Owner;
-import com.josimas.projectone.services.CrudService;
+import com.josimas.projectone.owner.Pet;
 import com.josimas.projectone.services.OwnerService;
+import com.josimas.projectone.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+
+    private final PetTypeService petTypeService;
+    private final PetService petService;
+
+    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
+        this.petTypeService = petTypeService;
+        this.petService = petService;
+    }
 
     @Override
     public Set<Owner> findAll() {
@@ -22,7 +32,29 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner save(Owner owner) {
-        return super.save(owner);
+
+        if (owner != null){
+            if (owner.getPets() != null){
+                owner.getPets().forEach(pet -> {
+                    if (pet.getPetType() != null){
+                        if (pet.getPetType().getId() == null){
+                            pet.setPetType(petTypeService.save(pet.getPetType()));
+                        }
+                    }else{
+                        throw new RuntimeException("PetType is required");
+                    }
+
+                    if (pet.getId() == null){
+                        // Pet savedPet = petService.save(pet); // ToDo: save?
+                        // pet.setId(savedPet.getId());
+                    }
+                });
+            }
+
+            return super.save(owner);
+        }
+
+        return null;
     }
 
     @Override
