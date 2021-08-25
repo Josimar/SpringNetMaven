@@ -1,10 +1,12 @@
 package com.josimas.projectone.visit;
 
 import com.josimas.projectone.model.BaseEntity;
+import com.josimas.projectone.owner.Pet;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
@@ -21,8 +23,9 @@ public class Visit extends BaseEntity {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
     @Column(name = "pet_id")
-    private Long petId;
+    private Pet petId;
 
     /**
      * Creates a new instance of Visit for the current date
@@ -47,13 +50,12 @@ public class Visit extends BaseEntity {
         this.description = description;
     }
 
-    public Long getPetId() {
-        return this.petId;
+    public Pet getPetId() {
+        return petId;
     }
 
-    public void setPetId(Long petId) {
+    public void setPetId(Pet petId) {
         this.petId = petId;
     }
-
 }
 
