@@ -3,9 +3,11 @@ package com.josimas.projectone.bootstrap;
 import com.josimas.projectone.model.Role;
 import com.josimas.projectone.model.User;
 import com.josimas.projectone.owner.Owner;
+import com.josimas.projectone.owner.PetType;
 import com.josimas.projectone.repository.RoleRepository;
 import com.josimas.projectone.repository.UserRepository;
 import com.josimas.projectone.services.OwnerService;
+import com.josimas.projectone.services.PetTypeService;
 import com.josimas.projectone.services.VetService;
 import com.josimas.projectone.vet.Vet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +31,12 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService){
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService){
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
@@ -53,6 +57,14 @@ public class DataLoader implements CommandLineRunner {
 
         System.out.println(" ");
         System.out.println("********** Auto Load **********");
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        PetType savedCatPetType = petTypeService.save(cat);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Josimar");
