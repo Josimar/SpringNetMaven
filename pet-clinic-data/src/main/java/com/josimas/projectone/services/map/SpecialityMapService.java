@@ -2,7 +2,6 @@ package com.josimas.projectone.services.map;
 
 import com.josimas.projectone.services.SpecialtyService;
 import com.josimas.projectone.vet.Speciality;
-import com.josimas.projectone.vet.Specialty;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;

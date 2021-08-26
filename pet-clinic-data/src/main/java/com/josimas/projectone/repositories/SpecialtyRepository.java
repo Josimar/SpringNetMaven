@@ -1,9 +1,9 @@
 package com.josimas.projectone.repositories;
 
-import com.josimas.projectone.vet.Specialty;
+import com.josimas.projectone.vet.Speciality;
 import org.springframework.data.repository.CrudRepository;
 
-public interface SpecialtyRepository extends CrudRepository<Specialty, Long> {
+public interface SpecialtyRepository extends CrudRepository<Speciality, Long> {
 
 
 }

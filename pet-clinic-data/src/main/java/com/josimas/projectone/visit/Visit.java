@@ -25,11 +25,8 @@ public class Visit extends BaseEntity {
 
     @ManyToOne
     @Column(name = "pet_id")
-    private Pet petId;
+    private Pet pet;
 
-    /**
-     * Creates a new instance of Visit for the current date
-     */
     public Visit() {
         this.date = LocalDate.now();
     }
@@ -50,12 +47,13 @@ public class Visit extends BaseEntity {
         this.description = description;
     }
 
-    public Pet getPetId() {
-        return petId;
+    public Pet getPet() {
+        return pet;
     }
 
-    public void setPetId(Pet petId) {
-        this.petId = petId;
+    public void setPet(Pet petId) {
+        this.pet = petId;
     }
+
 }
 
