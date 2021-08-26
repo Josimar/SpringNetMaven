@@ -2,9 +2,11 @@ package com.josimas.projectone.services.map;
 
 import com.josimas.projectone.services.VisitService;
 import com.josimas.projectone.visit.Visit;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
     @Override
     public Set<Visit> findAll() {
