@@ -2,15 +2,18 @@ package com.josimas.projectone.visit;
 
 import com.josimas.projectone.model.BaseEntity;
 import com.josimas.projectone.owner.Pet;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "visits")
 public class Visit extends BaseEntity {
@@ -24,36 +27,11 @@ public class Visit extends BaseEntity {
     private String description;
 
     @ManyToOne
-    @Column(name = "pet_id")
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
-    public Visit() {
-        this.date = LocalDate.now();
-    }
-
     public LocalDate getDate() {
-        return this.date;
+        return date;
     }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Pet getPet() {
-        return pet;
-    }
-
-    public void setPet(Pet petId) {
-        this.pet = petId;
-    }
-
 }
 
