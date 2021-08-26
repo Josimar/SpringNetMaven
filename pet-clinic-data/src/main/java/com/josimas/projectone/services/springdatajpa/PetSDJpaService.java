@@ -3,10 +3,14 @@ package com.josimas.projectone.services.springdatajpa;
 import com.josimas.pets.PetService;
 import com.josimas.projectone.owner.Pet;
 import com.josimas.projectone.repositories.PetRepository;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
+@Profile("springdatajpa")
 public class PetSDJpaService implements PetService {
 
     private final PetRepository petRepository;

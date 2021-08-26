@@ -5,11 +5,13 @@ import com.josimas.projectone.owner.Owner;
 import com.josimas.projectone.owner.Pet;
 import com.josimas.projectone.services.OwnerService;
 import com.josimas.projectone.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
