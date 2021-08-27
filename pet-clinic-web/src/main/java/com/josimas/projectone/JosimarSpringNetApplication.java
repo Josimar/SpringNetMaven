@@ -23,6 +23,8 @@ public class JosimarSpringNetApplication {
 
         PetController petController = ctx.getBean("petController", PetController.class);
 
+
+
         System.out.println(" ");
         System.out.println("********** The best pet is **********");
         System.out.println(petController.whichPetIsTheBest());

@@ -1,6 +1,5 @@
 package com.josimas.recipe.repositories;
 
-import com.josimas.recipe.domain.Category;
 import com.josimas.recipe.domain.UnitOfMeasure;
 import org.springframework.data.repository.CrudRepository;
 
