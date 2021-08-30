@@ -1,5 +1,6 @@
 package com.josimas.projectone.services.map;
 
+import com.josimas.pets.PetService;
 import com.josimas.projectone.owner.Pet;
 import com.josimas.projectone.services.CrudService;
 import org.springframework.context.annotation.Profile;
@@ -9,7 +10,7 @@ import java.util.Set;
 
 @Service
 @Profile({"default", "map"})
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
@@ -36,4 +37,8 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements Crud
     }
 
 
+    @Override
+    public String getPetType() {
+        return null;
+    }
 }
