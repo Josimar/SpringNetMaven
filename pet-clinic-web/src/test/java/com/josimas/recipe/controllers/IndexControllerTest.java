@@ -3,6 +3,7 @@ package com.josimas.recipe.controllers;
 import com.josimas.projectone.controllers.RecipeController;
 import com.josimas.recipe.domain.Recipe;
 import com.josimas.recipe.services.RecipeService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -64,13 +65,13 @@ public class IndexControllerTest {
 
         String viewName = controller.getIndexPage(model);
 
-        assertEquals("index", viewName);
+        Assertions.assertEquals("index", viewName);
         // verify(recipeService, times(1)).getRecipes(); // ToDo: resolver
         verify(model, times(1)).addAttribute(eq("recipes"), anySet());
         verify(model, times(1)).addAttribute(eq("recipes"), argumentCaptor.capture());
 
         Set<Recipe> setInController = argumentCaptor.getValue();
-        assertEquals(2, setInController.size());
+        Assertions.assertEquals(2, setInController.size());
     }
 
 }
