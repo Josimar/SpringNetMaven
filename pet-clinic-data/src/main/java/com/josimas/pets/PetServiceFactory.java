@@ -5,11 +5,11 @@ public class PetServiceFactory {
     public PetService getPetService(String petType){
         switch (petType){
             case "dog":
-                return new DogService();
+                return new DogService(null);
             case "cat":
-                return new CatService();
+                return new CatService(null);
             default:
-                return new BirdService();
+                return new BirdService(null);
         }
     }
 
