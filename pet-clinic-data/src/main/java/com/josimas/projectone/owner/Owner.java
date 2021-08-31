@@ -26,15 +26,15 @@ public class Owner extends Person {
     }
 
     @Column(name = "address")
-    @NotEmpty
+    //@NotEmpty
     private String address;
 
     @Column(name = "city")
-    @NotEmpty
+    //@NotEmpty
     private String city;
 
     @Column(name = "telephone")
-    @NotEmpty
+    //@NotEmpty
     // @Digits(fraction = 0, integer = 10)
     private String telephone;
 
