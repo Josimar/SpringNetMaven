@@ -1,5 +1,6 @@
 package com.josimas.recipe.services;
 
+import com.josimas.recipe.commands.RecipeCommand;
 import com.josimas.recipe.domain.Recipe;
 import com.josimas.recipe.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -41,6 +42,16 @@ public class RecipeServiceImplementation implements RecipeService{
         }
 
         return recipeOptional.get();
+    }
+
+    @Override
+    public RecipeCommand findCommandById(Long l) {
+        return null;
+    }
+
+    @Override
+    public RecipeCommand saveRecipeCommand(RecipeCommand command) {
+        return null;
     }
 
     @Override

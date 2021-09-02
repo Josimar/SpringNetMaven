@@ -1,5 +1,6 @@
 package com.josimas.recipe.services.map;
 
+import com.josimas.recipe.commands.RecipeCommand;
 import com.josimas.recipe.domain.Recipe;
 import com.josimas.recipe.repositories.RecipeRepository;
 import com.josimas.recipe.services.RecipeService;
@@ -13,11 +14,11 @@ import java.util.Set;
 @Slf4j
 @Service
 @Profile({"default", "map"})
-public class RecipeServiceMap extends AbstractMapService<Recipe, Long> implements RecipeService {
+public class RecipeMapService extends AbstractMapService<Recipe, Long> implements RecipeService {
 
     private final RecipeRepository recipeRepository;
 
-    public RecipeServiceMap(RecipeRepository recipeRepository) {
+    public RecipeMapService(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
 
@@ -44,6 +45,16 @@ public class RecipeServiceMap extends AbstractMapService<Recipe, Long> implement
     @Override
     public Recipe findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public RecipeCommand findCommandById(Long l) {
+        return null;
+    }
+
+    @Override
+    public RecipeCommand saveRecipeCommand(RecipeCommand command) {
+        return null;
     }
 
     @Override

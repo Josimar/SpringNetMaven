@@ -53,36 +53,36 @@ class VisitControllerTest {
     private URI visitsUri;
 
 
-    @BeforeEach
-    void setUp() {
-        Long petId = 1L;
-        Long ownerId = 1L;
-        when(petService.findById(anyLong()))
-                .thenReturn(
-                        Pet.builder()
-                                .id(petId)
-                                .birthDate(LocalDate.of(2018,11,13))
-                                .name("Cutie")
-                                .visits(new HashSet<>())
-                                .owner(Owner.builder()
-                                        .id(ownerId)
-                                        .lastName("Doe")
-                                        .firstName("Joe")
-                                        .build())
-                                .petType(PetType.builder()
-                                        .name("Dog").build())
-                                .build()
-                );
-
-        uriVariables.clear();
-        uriVariables.put("ownerId", ownerId.toString());
-        uriVariables.put("petId", petId.toString());
-        // visitsUri = visitsUriTemplate.expand(uriVariables);
-
-        mockMvc = MockMvcBuilders
-                .standaloneSetup(visitController)
-                .build();
-    }
+//    @BeforeEach
+//    void setUp() {
+//        Long petId = 1L;
+//        Long ownerId = 1L;
+//        when(petService.findById(anyLong()))
+//                .thenReturn(
+//                        Pet.builder()
+//                                .id(petId)
+//                                .birthDate(LocalDate.of(2018,11,13))
+//                                .name("Cutie")
+//                                .visits(new HashSet<>())
+//                                .owner(Owner.builder()
+//                                        .id(ownerId)
+//                                        .lastName("Doe")
+//                                        .firstName("Joe")
+//                                        .build())
+//                                .petType(PetType.builder()
+//                                        .name("Dog").build())
+//                                .build()
+//                );
+//
+//        uriVariables.clear();
+//        uriVariables.put("ownerId", ownerId.toString());
+//        uriVariables.put("petId", petId.toString());
+//        // visitsUri = visitsUriTemplate.expand(uriVariables);
+//
+//        mockMvc = MockMvcBuilders
+//                .standaloneSetup(visitController)
+//                .build();
+//    }
 
     @Test
     void dataBinder() {

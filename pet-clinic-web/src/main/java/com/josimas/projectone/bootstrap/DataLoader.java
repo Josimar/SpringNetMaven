@@ -62,6 +62,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        log.debug("Class DataLoader => Run Dataloader");
 
         int count = petTypeService.findAll().size();
 
