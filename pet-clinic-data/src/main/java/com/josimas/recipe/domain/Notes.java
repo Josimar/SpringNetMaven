@@ -1,6 +1,7 @@
 package com.josimas.recipe.domain;
 
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 
